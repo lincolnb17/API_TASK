@@ -2,15 +2,24 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 const url = 'https://reqres.in/api/users?page=2'
 
+// // send the GET request
 const response = await fetch(url,{
     method:"GET",
     headers:{"Content-Type":"application/json"}
 })
-const jsonData = await response.json();
-// console.log(jsonData.data)
-const res_data = jsonData.data
+const res= await response.json();
+const jsonData= res.data[0];
 
-fs.writeFile('/payload/data3.json',jsonData.data)
+// Add some more parameters to the response
+const modifiedData = {
+    ...jsonData,
+    job: 'Docotor'
+  };
+const parsedData = JSON.stringify(modifiedData,null,2);
+console.log(parsedData)
 
-console.log(res_data)
-
+// Writing the response to JSON File
+fs.writeFile('payload/data3.json', parsedData, (err) => {
+  if (err) throw err;
+  console.log('Data written to file');
+});
