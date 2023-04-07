@@ -1,5 +1,6 @@
 import fs from 'fs'
 import fetch from 'node-fetch'
+
 // Read the JSON file
 const data= fs.readFileSync("./payload/data2.json", "utf-8");
 const url= 'https://reqres.in/api/users'
