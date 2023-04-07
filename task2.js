@@ -8,8 +8,7 @@ const url= 'https://reqres.in/api/users'
 const name = 'Ram';
 const job = 'Developer';
 
-const requestBody = JSON.stringify(JSON.parse(data.replace("${name}", name).replace("${job}", job)));  
-console.log(data)               
+const requestBody = JSON.stringify(JSON.parse(data.replace("${name}", name).replace("${job}", job)));             
 // // send the POST request
 const response = await fetch(url,{
     method:"POST",
