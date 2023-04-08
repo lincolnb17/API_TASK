@@ -1,7 +1,8 @@
 import fs from 'fs'
 import fetch from 'node-fetch'
 
-// read the JSON file
+try{
+    // read the JSON file
 const data= fs.readFileSync("./payload/data.json", "utf-8");
 const url= 'https://reqres.in/api/users'
 
@@ -13,3 +14,7 @@ const response = await fetch(url,{
 })
 const jsonData = await response.json();
 console.log(jsonData)
+
+}catch(err){
+    console.log("Error Occured")
+}

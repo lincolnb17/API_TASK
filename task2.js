@@ -6,7 +6,11 @@ const data= fs.readFileSync("./payload/data2.json", "utf-8");
 const url= 'https://reqres.in/api/users'
 
 // Replace the variables with desired values
-const name = 'Ram';
+
+
+
+try{
+    const name = 'Ram';
 const job = 'Developer';
 
 const requestBody = JSON.stringify(JSON.parse(data.replace("${name}", name).replace("${job}", job)));             
@@ -20,4 +24,9 @@ const jsonData = await response.json();
 console.log(jsonData)
 
 
+}catch(err){
+    console.log("Error Occured")
+
+
+}
 
